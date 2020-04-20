@@ -47,7 +47,6 @@ class Home extends BaseController{
 			echo view('users', $user);
 
 		} else {
-
 			echo "Nenhum ID de usuário informado!!";
 		}
 
@@ -62,17 +61,40 @@ class Home extends BaseController{
 			$DelUser = $ClienteModel->delete($id);
 
 			if ($DelUser){
-
 				echo "Usuário excluído com sucesso!!";
-
 			} else {
-
 				echo "Houve um erro ao tentar excluir o usuário!!";
 			}
 
 		} else {
-
 			echo "Nenhum ID de usuário informado!!";
+		}
+
+	}
+
+
+	public function UpdateUser(){
+
+
+		$ClienteModel = new ClientesModel();
+
+		$data['nome'] =  $this->request->getPost('nome');
+		$data['email'] = $this->request->getPost('email');
+		$data['endereco'] = $this->request->getPost('endereco');
+		$id = $this->request->getPost('id');
+
+		if ($id != null){
+
+			$request = $ClienteModel->update($id, $data);
+
+			if ($request){
+				echo "Usuário atualizado com sucesso!!";
+			} else {
+				echo "Houve um erro ao atualizar o cadastro do usuário!!";
+			}
+
+		} else {
+			echo "Nenhum ID de usuário foi informado!!";
 		}
 
 	}

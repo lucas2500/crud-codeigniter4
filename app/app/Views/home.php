@@ -17,7 +17,7 @@
 			<input type="email" class="form-control" name="email" id="email" required="" placeholder="Email">
 		</div>
 		<div class="form-group">
-			<input type="endereceo" class="form-control" name="endereco" id="endereco" required="" placeholder="Endereço">
+			<input type="text" class="form-control" name="endereco" id="endereco" required="" placeholder="Endereço">
 		</div>
 		<button type="submit" class="btn btn-success">Enviar</button>
 		<?php echo form_close(); ?>
